@@ -1,0 +1,134 @@
+---- Minecraft Crash Report ----
+// Ooh. Shiny.
+
+Time: 3/31/22 6:43 PM
+Description: Exception in server tick loop
+
+java.lang.NoSuchMethodError: net.minecraft.entity.ai.attributes.ModifiableAttributeInstance.func_142049_d()V
+	at net.infstudio.goki.common.utils.DataHelper.addMaxHealth(DataHelper.java:67) ~[gokistats:1.3.1] {re:classloading}
+	at net.infstudio.goki.common.utils.DataHelper.resetMaxHealth(DataHelper.java:72) ~[gokistats:1.3.1] {re:classloading}
+	at net.infstudio.goki.common.handlers.SyncEventHandler.syncPlayerData(SyncEventHandler.java:17) ~[gokistats:1.3.1] {re:classloading}
+	at net.infstudio.goki.common.handlers.SyncEventHandler.playerLoggedIn(SyncEventHandler.java:23) ~[gokistats:1.3.1] {re:classloading}
+	at net.minecraftforge.eventbus.ASMEventHandler_62_SyncEventHandler_playerLoggedIn_PlayerLoggedInEvent.invoke(.dynamic) ~[?:?] {}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:85) ~[eventbus-4.0.0.jar:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-4.0.0.jar:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-4.0.0.jar:?] {}
+	at net.minecraftforge.fml.hooks.BasicEventHooks.firePlayerLoggedIn(BasicEventHooks.java:44) ~[forge:?] {re:classloading}
+	at net.minecraft.server.management.PlayerList.func_72355_a(PlayerList.java:232) ~[?:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:betterendforge.mixins.json:PlayerListMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.network.login.ServerLoginNetHandler.func_147326_c(ServerLoginNetHandler.java:118) ~[?:?] {re:classloading}
+	at net.minecraft.network.login.ServerLoginNetHandler.func_73660_a(ServerLoginNetHandler.java:65) ~[?:?] {re:classloading}
+	at net.minecraft.network.NetworkManager.func_74428_b(NetworkManager.java:222) ~[?:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.network.NetworkSystem.func_151269_c(NetworkSystem.java:134) ~[?:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:865) ~[?:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixin.terraforged.json:common.MixinMinecraftServer,pl:mixin:APP:betterendforge.mixins.json:MinecraftServerMixin,pl:mixin:APP:byg.mixins.json:server.MixinMinecraftServer,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:291) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:787) ~[?:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixin.terraforged.json:common.MixinMinecraftServer,pl:mixin:APP:betterendforge.mixins.json:MinecraftServerMixin,pl:mixin:APP:byg.mixins.json:server.MixinMinecraftServer,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.func_240802_v_(MinecraftServer.java:642) ~[?:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixin.terraforged.json:common.MixinMinecraftServer,pl:mixin:APP:betterendforge.mixins.json:MinecraftServerMixin,pl:mixin:APP:byg.mixins.json:server.MixinMinecraftServer,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.func_240783_a_(MinecraftServer.java:232) ~[?:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixin.terraforged.json:common.MixinMinecraftServer,pl:mixin:APP:betterendforge.mixins.json:MinecraftServerMixin,pl:mixin:APP:byg.mixins.json:server.MixinMinecraftServer,pl:mixin:A,pl:runtimedistcleaner:A}
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_292] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Linux (amd64) version 5.4.0-77-generic
+	Java Version: 1.8.0_292, Oracle Corporation
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 255425936 bytes (243 MB) / 2063073280 bytes (1967 MB) up to 2063073280 bytes (1967 MB)
+	CPUs: 2
+	JVM Flags: 2 total; -Xmx2048M -Xms1024M
+	ModLauncher: 8.1.3+8.1.3+main-8.1.x.c94d18ec
+	ModLauncher launch target: fmlserver
+	ModLauncher naming: srg
+	ModLauncher services: 
+		/mixin-0.8.4.jar mixin PLUGINSERVICE 
+		/eventbus-4.0.0.jar eventbus PLUGINSERVICE 
+		/forge.jar object_holder_definalize PLUGINSERVICE 
+		/forge.jar runtime_enum_extender PLUGINSERVICE 
+		/accesstransformers-3.0.1.jar accesstransformer PLUGINSERVICE 
+		/forge.jar capability_inject_definalize PLUGINSERVICE 
+		/forge.jar runtimedistcleaner PLUGINSERVICE 
+		/mixin-0.8.4.jar mixin TRANSFORMATIONSERVICE 
+		/forge.jar fml TRANSFORMATIONSERVICE 
+	FML: 36.2
+	Forge: net.minecraftforge:36.2.33
+	FML Language Providers: 
+		javafml@36.2
+		minecraft@1
+	Mod List: 
+		mowziesmobs-1.5.22.jar                            |Mowzie's Mobs                 |mowziesmobs                   |1.5.22              |DONE      |Manifest: NOSIGNATURE
+		DungeonsMod-1.16.3-1.4.43.jar                     |Dungeons Mod                  |dungeonsmod                   |1.16.3-1.4.43       |DONE      |Manifest: NOSIGNATURE
+		BetterDungeons-1.16.4-1.2.1.jar                   |YUNG's Better Dungeons        |betterdungeons                |1.16.4-1.2.1        |DONE      |Manifest: NOSIGNATURE
+		Tropicraft-9.2.0-release+90.jar                   |Tropicraft                    |tropicraft                    |9.2.0-release+90    |DONE      |Manifest: NOSIGNATURE
+		GokiStats-1.16.5-1.3.1.jar                        |Goki Stats                    |gokistats                     |1.3.1               |DONE      |Manifest: NOSIGNATURE
+		astralsorcery-1.16-1.16.5-1.13.12.jar             |Astral Sorcery                |astralsorcery                 |1.16.5-1.13.12      |DONE      |Manifest: 45:2b:0a:49:6b:65:3b:39:a9:dd:d2:5b:55:7f:82:47:a5:1d:7a:cc:7f:a8:69:73:72:53:6f:57:4d:b2:1a:b7
+		pamhc2trees-1.16.3-1.0.1.jar                      |Pam's HarvestCraft 2 Fruit Tre|pamhc2trees                   |1.0.1               |DONE      |Manifest: NOSIGNATURE
+		minecraft-comes-alive-7.0.10-forge.jar            |Minecraft Comes Alive         |mca                           |7.0.10              |DONE      |Manifest: NOSIGNATURE
+		locks-1.16.5-3.0.3.jar                            |Locks                         |locks                         |3.0.3               |DONE      |Manifest: NOSIGNATURE
+		jei-1.16.5-7.7.1.152.jar                          |Just Enough Items             |jei                           |7.7.1.152           |DONE      |Manifest: NOSIGNATURE
+		prefab-1.6.5.15.jar                               |Prefab                        |prefab                        |1.6.5.15            |DONE      |Manifest: NOSIGNATURE
+		BetterCaves-Forge-1.16.4-1.1.2.jar                |YUNG's Better Caves           |bettercaves                   |1.16.4-1.1.2        |DONE      |Manifest: NOSIGNATURE
+		Waystones_1.16.5-7.6.4.jar                        |Waystones                     |waystones                     |7.6.4               |DONE      |Manifest: NOSIGNATURE
+		TerraForged-1.16.5-0.2.16-BETA-2.jar              |TerraForged                   |terraforged                   |0.2.16-BETA-2       |DONE      |Manifest: 7b:73:d0:a2:c3:40:13:84:35:4f:c9:0e:2b:85:8c:08:ea:3c:3c:eb:f1:98:8b:5b:6e:ca:8a:a0:9a:cf:12:b3
+		mgui-1.16.5-3.3.0.jar                             |mgui                          |mgui                          |3.3.0               |DONE      |Manifest: NOSIGNATURE
+		CTM-MC1.16.1-1.1.2.6.jar                          |ConnectedTexturesMod          |ctm                           |MC1.16.1-1.1.2.6    |DONE      |Manifest: NOSIGNATURE
+		citadel-1.8.1-1.16.5.jar                          |Citadel                       |citadel                       |1.8.1               |DONE      |Manifest: NOSIGNATURE
+		alexsmobs-1.12.1.jar                              |Alex's Mobs                   |alexsmobs                     |1.12.1              |DONE      |Manifest: NOSIGNATURE
+		TravelersBackpack-1.16.5-5.4.7.jar                |Traveler's Backpack           |travelersbackpack             |5.4.7               |DONE      |Manifest: NOSIGNATURE
+		NaturesCompass-1.16.5-1.9.1-forge.jar             |Nature's Compass              |naturescompass                |1.16.5-1.9.1-forge  |DONE      |Manifest: NOSIGNATURE
+		YungsApi-1.16.4-Forge-13.jar                      |YUNG's API                    |yungsapi                      |1.16.4-Forge-13     |DONE      |Manifest: NOSIGNATURE
+		DungeonCrawl-1.16.5-2.3.5.jar                     |Dungeon Crawl                 |dungeoncrawl                  |2.3.5               |DONE      |Manifest: NOSIGNATURE
+		u_team_core-1.16.5-3.2.1.196.jar                  |U Team Core                   |uteamcore                     |3.2.1.196           |DONE      |Manifest: f4:a6:0b:ee:cb:8a:1a:ea:9f:9d:45:91:8f:8b:b3:ae:26:f3:bf:05:86:1d:90:9e:f6:32:2a:1a:ed:1d:ce:b0
+		iceandfire-2.1.9-1.16.5.jar                       |Ice and Fire                  |iceandfire                    |2.1.9-1.16.5        |DONE      |Manifest: NOSIGNATURE
+		Hwyla-forge-1.10.11-B78_1.16.2.jar                |Waila                         |waila                         |1.10.11-B78_1.16.2  |DONE      |Manifest: NOSIGNATURE
+		firstaid-1.9.7.jar                                |First Aid                     |firstaid                      |1.9.7               |DONE      |Manifest: NOSIGNATURE
+		forge-1.16.5-36.2.33-universal.jar                |Forge                         |forge                         |36.2.33             |DONE      |Manifest: 22:af:21:d8:19:82:7f:93:94:fe:2b:ac:b7:e4:41:57:68:39:87:b1:a7:5c:c6:44:f9:25:74:21:14:f5:0d:90
+		twilightforest-1.16.5-4.0.870-universal.jar       |The Twilight Forest           |twilightforest                |NONE                |DONE      |Manifest: NOSIGNATURE
+		betterendforge-1.16.5-1.6.3.jar                   |BetterEnd Forge               |betterendforge                |1.16.5-1.6.3        |DONE      |Manifest: NOSIGNATURE
+		antiqueatlas-6.0.1-forge-mc1.16.5.jar             |Antique Atlas                 |antiqueatlas                  |6.0.1-forge-mc1.16.5|DONE      |Manifest: NOSIGNATURE
+		DungeonsArise-1.16.5-2.1.49-beta.jar              |When Dungeons Arise           |dungeons_arise                |2.1.49              |DONE      |Manifest: NOSIGNATURE
+		dungeons_1.10.3_mc1.16.5.jar                      |Minecraft Dungeons            |duneons                       |1.10.3              |DONE      |Manifest: NOSIGNATURE
+		chocolate-1.3.0-1.16.4.jar                        |Chocolate                     |chocolate                     |1.3.0-1.16.4        |DONE      |Manifest: NOSIGNATURE
+		forge-1.16.5-36.2.33-server.jar                   |Minecraft                     |minecraft                     |1.16.5              |DONE      |Manifest: NOSIGNATURE
+		TConstruct-1.16.5-3.3.4.335.jar                   |Tinkers' Construct            |tconstruct                    |3.3.4.335           |DONE      |Manifest: NOSIGNATURE
+		voice_chat-1.16.5-0.2.0.7-SNAPSHOT.jar            |Voice Chat                    |voicechat                     |0.2.0.7-SNAPSHOT    |DONE      |Manifest: f4:a6:0b:ee:cb:8a:1a:ea:9f:9d:45:91:8f:8b:b3:ae:26:f3:bf:05:86:1d:90:9e:f6:32:2a:1a:ed:1d:ce:b0
+		silent-lib-1.16.5-4.10.0.jar                      |Silent Lib                    |silentlib                     |4.10.0              |DONE      |Manifest: NOSIGNATURE
+		pamhc2crops-1.16.3-1.0.2.jar                      |Pam's HarvestCraft 2 Crops    |pamhc2crops                   |version             |DONE      |Manifest: NOSIGNATURE
+		Treasure2-mc1.16.5-f36.2.0-v1.7.3.jar             |Treasure2                     |treasure2                     |1.7.3               |DONE      |Manifest: NOSIGNATURE
+		CreativeCore_v2.2.1_mc1.16.5.jar                  |CreativeCore                  |creativecore                  |2.0.0               |DONE      |Manifest: NOSIGNATURE
+		villagespawnpoint_1.16.5-1.8.jar                  |Village Spawn Point           |villagespawnpoint             |1.8                 |DONE      |Manifest: NOSIGNATURE
+		pamhc2foodextended-1.16.3-1.0.4.jar               |Pam's HarvestCraft 2 Food Exte|pamhc2foodextended            |version             |DONE      |Manifest: NOSIGNATURE
+		gaiadimension-1.16.5-1.3.3.jar                    |The Gaia Dimension            |gaiadimension                 |1.3.3               |DONE      |Manifest: NOSIGNATURE
+		curios-forge-1.16.5-4.0.8.1.jar                   |Curios API                    |curios                        |1.16.5-4.0.8.1      |DONE      |Manifest: NOSIGNATURE
+		tetra-1.16.5-3.20.0.jar                           |Tetra                         |tetra                         |3.20.0              |DONE      |Manifest: NOSIGNATURE
+		Atum-1.16.5-2.2.10.jar                            |Atum 2                        |atum                          |1.16.5-2.2.10       |DONE      |Manifest: NOSIGNATURE
+		SpartanShields-1.16.5-2.1.2.jar                   |Spartan Shields               |spartanshields                |2.1.2               |DONE      |Manifest: NOSIGNATURE
+		Patchouli-1.16.4-53.2.jar                         |Patchouli                     |patchouli                     |1.16.4-53.2         |DONE      |Manifest: NOSIGNATURE
+		Mantle-1.16.5-1.6.157.jar                         |Mantle                        |mantle                        |1.6.157             |DONE      |Manifest: NOSIGNATURE
+		pamhc2foodcore-1.16.3-1.0.2.jar                   |Pam's HarvestCraft 2 Food Core|pamhc2foodcore                |version             |DONE      |Manifest: NOSIGNATURE
+		collective-1.16.5-4.25.jar                        |Collective                    |collective                    |4.25                |DONE      |Manifest: NOSIGNATURE
+		StorageDrawers-1.16.3-8.5.1.jar                   |Storage Drawers               |storagedrawers                |8.5.1               |DONE      |Manifest: NOSIGNATURE
+		tombstone-6.7.4-1.16.5.jar                        |Corail Tombstone              |tombstone                     |6.7.4               |DONE      |Manifest: NOSIGNATURE
+		GottschCore-mc1.16.5-f36.2.0-v1.5.0.jar           |GottschCore                   |gottschcore                   |1.5.0               |DONE      |Manifest: NOSIGNATURE
+		BetterStrongholds-1.16.4-1.2.1.jar                |YUNG's Better Strongholds     |betterstrongholds             |1.16.4-1.2.1        |DONE      |Manifest: NOSIGNATURE
+		antiquewaystones-1.3.jar                          |Antique Waystones             |antiquewaystones              |1.3                 |DONE      |Manifest: NOSIGNATURE
+		SpartanWeaponry-1.16.5-2.2.0-rc-1.jar             |Spartan Weaponry              |spartanweaponry               |2.2.0 Release Candid|DONE      |Manifest: NOSIGNATURE
+		Chisel-MC1.16.5-2.0.1-alpha.4.jar                 |Chisel                        |chisel                        |MC1.16.5-2.0.1-alpha|DONE      |Manifest: NOSIGNATURE
+		observerlib-1.16.5-1.5.3.jar                      |ObserverLib                   |observerlib                   |1.16.5-1.5.3        |DONE      |Manifest: NOSIGNATURE
+		cloth-config-4.14.54-forge.jar                    |Cloth Config v4 API           |cloth-config                  |4.14.54             |DONE      |Manifest: NOSIGNATURE
+		byg-1.3.5.jar                                     |Oh The Biomes You'll Go       |byg                           |1.3.4               |DONE      |Manifest: NOSIGNATURE
+		ScalingHealth-1.16.5-4.1.5+11.jar                 |Scaling Health                |scalinghealth                 |4.1.5+11            |DONE      |Manifest: NOSIGNATURE
+		valhelsia_core-16.0.15.jar                        |Valhelsia Core                |valhelsia_core                |16.0.15             |DONE      |Manifest: NOSIGNATURE
+		valhelsia_structures-1.16.5-0.1.6.jar             |Valhelsia Structures          |valhelsia_structures          |1.16.5-0.1.6        |DONE      |Manifest: NOSIGNATURE
+		BetterMineshafts-Forge-1.16.4-2.0.4.jar           |YUNG's Better Mineshafts      |bettermineshafts              |1.16.4-2.0.4        |DONE      |Manifest: NOSIGNATURE
+		PlayerRevive_v2.0.0-pre04_mc1.16.5.jar            |PlayerRevive                  |playerrevive                  |2.0.0               |DONE      |Manifest: NOSIGNATURE
+		geckolib-forge-1.16.5-3.0.65.jar                  |GeckoLib                      |geckolib3                     |3.0.65              |DONE      |Manifest: NOSIGNATURE
+		xptome-1.16.5-v2.1.4.jar                          |XP Tome                       |xpbook                        |v2.1.4              |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 5b53c7ee-4c30-4ebf-a256-dc348ed44f71
+	Player Count: 1 / 20; [ServerPlayerEntity['crg_11076'/1126, l='ServerLevel[world]', x=1026.50, y=63.00, z=-961.50]]
+	Data Packs: vanilla, mod:mowziesmobs, mod:dungeonsmod (incompatible), mod:betterdungeons, mod:tropicraft (incompatible), mod:gokistats, mod:astralsorcery, mod:pamhc2trees (incompatible), mod:mca, mod:locks, mod:jei, mod:prefab, mod:bettercaves (incompatible), mod:waystones (incompatible), mod:terraforged, mod:mgui (incompatible), mod:ctm (incompatible), mod:citadel (incompatible), mod:alexsmobs, mod:travelersbackpack (incompatible), mod:naturescompass (incompatible), mod:yungsapi, mod:dungeoncrawl, mod:uteamcore, mod:iceandfire (incompatible), mod:waila, mod:firstaid (incompatible), mod:forge, mod:twilightforest, mod:betterendforge, mod:antiqueatlas, mod:dungeons_arise, mod:duneons, mod:chocolate, mod:tconstruct, mod:voicechat, mod:silentlib (incompatible), mod:pamhc2crops (incompatible), mod:treasure2, mod:creativecore, mod:villagespawnpoint, mod:pamhc2foodextended (incompatible), mod:gaiadimension, mod:curios, mod:tetra, mod:atum, mod:spartanshields, mod:patchouli (incompatible), mod:mantle (incompatible), mod:pamhc2foodcore (incompatible), mod:collective, mod:storagedrawers (incompatible), mod:tombstone, mod:gottschcore (incompatible), mod:betterstrongholds, mod:antiquewaystones, mod:spartanweaponry, mod:chisel (incompatible), mod:observerlib, mod:cloth-config (incompatible), mod:byg, mod:scalinghealth, mod:valhelsia_core, mod:valhelsia_structures, mod:bettermineshafts, mod:playerrevive, mod:geckolib3 (incompatible), mod:xpbook, file/bukkit, file/treasure2 (incompatible)
+	Is Modded: Definitely; Server brand changed to 'forge'
+	Type: Dedicated Server (map_server.txt)
